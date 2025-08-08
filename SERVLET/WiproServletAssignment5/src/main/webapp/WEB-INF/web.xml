@@ -1,0 +1,19 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="4.0">
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>wipro.servletassignment5.CartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewCartServlet</servlet-name>
+        <servlet-class>wipro.servletassignment5.ViewCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewCartServlet</servlet-name>
+        <url-pattern>/viewcart</url-pattern>
+    </servlet-mapping>
+</web-app>
