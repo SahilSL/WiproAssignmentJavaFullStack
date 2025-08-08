@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <!-- Product Bean -->
+    <bean id="product" class="com.wipro.purchase.Product">
+        <property name="productId" value="101"/>
+        <property name="productName" value="Laptop"/>
+        <property name="price" value="55000"/>
+    </bean>
+
+    <!-- Purchase Bean (Constructor Autowire for Product) -->
+    <bean id="purchase" class="com.wipro.purchase.Purchase" autowire="constructor">
+        <property name="purchaseId" value="201"/>
+        <property name="purchaseDate" value="2025-08-06"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    
+    <bean id="shoppingService" class="com.wipro.shopping.ShoppingService"/>
+    <bean id="loggingAspect" class="com.wipro.shopping.LoggingAspect"/>
+
+    <!-- AOP Configuration -->
+    <aop:config>
+        <aop:aspect ref="loggingAspect">
+
+            <!-- Pointcut for all methods in ShoppingService -->
+            <aop:pointcut id="shoppingMethods" expression="execution(* com.wipro.shopping.ShoppingService.*(..))"/>
+
+            <!-- Before Advice -->
+            <aop:before pointcut-ref="shoppingMethods" method="logBefore"/>
+
+            <!-- After Returning Advice -->
+            <aop:after-returning pointcut-ref="shoppingMethods" method="logAfterReturning"/>
+
+            <!-- After Throwing Advice -->
+            <aop:after-throwing pointcut-ref="shoppingMethods" method="logAfterThrowing" throwing="ex"/>
+
+            <!-- Around Advice -->
+            <aop:around pointcut-ref="shoppingMethods" method="logAround"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
