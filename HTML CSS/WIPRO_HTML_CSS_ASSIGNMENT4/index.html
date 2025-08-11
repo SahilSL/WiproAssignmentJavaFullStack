@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Feedback Survey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        header {
+            background-color: #1E73BE;
+            color: white;
+            padding: 15px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: white;
+            padding: 8px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #1E73BE;
+        }
+        main {
+            display: flex;
+            padding: 20px;
+        }
+        form {
+            flex: 3;
+            background: #fdf9f9;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+        aside {
+            flex: 1;
+            background: #f9f4eb;
+            padding: 15px;
+            margin-left: 15px;
+            border: 1px solid #ccc;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .form-row label {
+            flex: 1;
+            margin-right: 10px;
+            text-align: left;
+            white-space: nowrap;
+        }
+        .form-row input,
+        .form-row select,
+        .form-row textarea {
+            flex: 2;
+            padding: 5px;
+        }
+        textarea {
+            height: 70px;
+        }
+        .rating-options {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .rating-options input[type="radio"] {
+            margin-right: 4px;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        .buttons input {
+            padding: 6px 15px;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .buttons input[type="submit"] {
+            background-color: #1E73BE;
+        }
+        .buttons input[type="reset"] {
+            background-color: white;
+            color: #1E73BE;
+            border: 1px solid #1E73BE;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #f5f5f5;
+            border-top: 1px solid #ccc;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Website Feedback Survey</h1>
+    <p>We value your opinion. Please take a minute to share your thoughts.</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main>
+    <form action="#" method="post" enctype="multipart/form-data">
+        <section>
+            <h2>Personal Information</h2>
+            <div class="form-row">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-row">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-row">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="10" max="100">
+            </div>
+        </section>
+
+        <section>
+            <h2>Website Rating</h2>
+            <div class="form-row">
+                <label for="design">Design (1-10):</label>
+                <input type="range" id="design" name="design" min="1" max="10">
+            </div>
+            <div class="form-row">
+                <label>Content Quality:</label>
+                <div class="rating-options">
+                    <input type="radio" id="excellent" name="quality" value="Excellent">
+                    <label for="excellent">Excellent</label>
+
+                    <input type="radio" id="good" name="quality" value="Good">
+                    <label for="good">Good</label>
+
+                    <input type="radio" id="average" name="quality" value="Average">
+                    <label for="average">Average</label>
+
+                    <input type="radio" id="poor" name="quality" value="Poor">
+                    <label for="poor">Poor</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <label for="visited">Most visited page:</label>
+                <select id="visited" name="visited">
+                    <option>Home</option>
+                    <option>Blog</option>
+                    <option>Products</option>
+                    <option>Contact</option>
+                </select>
+            </div>
+        </section>
+
+        <section>
+            <h2>Suggestions</h2>
+            <div class="form-row">
+                <label for="suggestions">Suggestions:</label>
+                <textarea id="suggestions" name="suggestions" placeholder="Write your suggestions here..."></textarea>
+            </div>
+            <div class="form-row">
+                <label></label>
+                <input type="checkbox" name="contact"> I agree to be contacted regarding my feedback
+            </div>
+        </section>
+
+        <div class="buttons">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+
+    <aside>
+        <h3>Why your feedback matters</h3>
+        <p>Your feedback helps us improve our website experience for everyone. Thank you!</p>
+    </aside>
+</main>
+
+<footer>
+    &copy; 2025 Website Survey
+</footer>
+
+</body>
+</html>
