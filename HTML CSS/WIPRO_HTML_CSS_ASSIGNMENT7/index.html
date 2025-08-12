@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Multimedia Lab</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            line-height: 1.5;
+        }
+        h1 {
+            font-size: 1.8em;
+        }
+        h2 {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        video, audio, embed, iframe {
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .pdf-embed {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ccc;
+        }
+        iframe {
+            height: 150px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HTML5 Multimedia Lab</h1>
+    <p>This page demonstrates video, audio, embed (PDF), iframe, and inline SVG. Below is a visual preview.</p>
+
+    <h2>Video (sample.mp4)</h2>
+    <video src="assets/SampleVideo.mp4" controls controls autoplay muted poster="assets/poster.png" width="500">
+        Your browser does not support the video tag.
+    </video>
+
+    <h2>Audio (sample.mp3)</h2>
+    <audio src="assets/sampleMusic.mp3" controls loop>
+        Your browser does not support the audio tag.
+    </audio>
+
+    <h2>Embed (samplePDF.pdf)</h2>
+    <embed src="assets/samplePDF.pdf" type="application/pdf" class="pdf-embed">
+    <p>If not visible, download <a href="samplePDF.pdf"> samplePDF.pdf</a></p>
+
+    <h2>Iframe (demo.html)</h2>
+    <iframe src="demo.html" title="Demo page"></iframe>
+
+    <h2>Inline SVG</h2>
+    <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="30,20 70,50 30,80" fill="red" />
+    </svg>
+
+</body>
+</html>

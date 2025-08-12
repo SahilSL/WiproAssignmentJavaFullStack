@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Furniture Store Catalog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #1a1a1a;
+            margin-top: 20px;
+        }
+        p.tagline {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 40px;
+        }
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+        .card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .card h3 {
+            margin: 15px 0 5px;
+        }
+        .price {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 8px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Furniture Store Catalog</h1>
+    <p class="tagline">Find the best furniture for your home</p>
+
+    <div class="products">
+        <div class="card" style="background-color: #ffffff;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO65gwC5NdJD1olaIS5e5DcBJSvfxpQwyU7Q&s" alt="Sofa">
+            <h3>Sofa</h3>
+            <p>Comfortable and stylish sofa</p>
+            <div class="price">$499</div>
+            <a href="#" class="btn">Buy Now</a>
+        </div>
+
+        <div class="card">
+            <img src="https://static.vecteezy.com/system/resources/previews/047/242/617/non_2x/wooden-luxury-dining-table-isolated-on-transparent-background-free-png.png" alt="Dining Table">
+            <h3>Dining Table</h3>
+            <p>Wooden dining table</p>
+            <div class="price">$299</div>
+            <a href="#" class="btn">Buy Now</a>
+        </div>
+
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU-u23z9XaHDK8fb3EhmyoS7wDNLC9huVQUQ&s" alt="Chair">
+            <h3>Chair</h3>
+            <p>Modern chair for any room</p>
+            <div class="price">$149</div>
+            <a href="#" class="btn" style="background-color: black;">Buy Now</a>
+        </div>
+    </div>
+
+</body>
+</html>
