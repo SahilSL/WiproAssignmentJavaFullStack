@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Income Tax Calculator with Callbacks</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .result { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h2>Income Tax Calculator</h2>
+  <label>Name: <input type="text" id="name" /></label><br><br>
+  <label>PAN: <input type="text" id="pan" /></label><br><br>
+  <label>Annual Income (₹): <input type="number" id="income" /></label><br><br>
+  <button onclick="Submitfunc()">Calculate Tax</button>
+
+  <div class="result" id="output"></div>
+
+  <script>
+    const taxRecords = [];
+
+    // Tax calculation function with callback
+    function calculateTax(name, pan, income, callback) {
+      let tax = 0;
+
+      // Slab calculation
+      if (income <= 250000) {
+        tax = 0;
+      } else if (income <= 500000) {
+        tax = (income - 250000) * 0.05;
+      } else if (income <= 1000000) {
+        tax = (250000 * 0.05) + (income - 500000) * 0.2;
+      } else {
+        tax = (250000 * 0.05) + (500000 * 0.2) + (income - 1000000) * 0.3;
+      }
+
+      tax = Math.round(tax);
+      callback({ name, pan, income, tax });
+    }
+
+    function logToConsole(data) {
+      console.log("Tax Record (Console):", data);
+    }
+
+    function displayOnPage(data) {
+      document.getElementById("output").innerHTML = `
+        <h3>Tax Details:</h3>
+        <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>PAN:</strong> ${data.pan}</p>
+        <p><strong>Income:</strong> ₹${data.income}</p>
+        <p><strong>Calculated Tax:</strong> ₹${data.tax}</p>
+      `;
+    }
+
+    function saveToRecords(data) {
+      taxRecords.push(data);
+      console.log("All Records:", taxRecords); 
+    }
+
+    function processTaxResult(data) {
+      logToConsole(data);
+      displayOnPage(data);
+      saveToRecords(data);
+    }
+
+    function Submitfunc() {
+      const name = document.getElementById("name").value.trim();
+      const pan = document.getElementById("pan").value.trim().toUpperCase();
+      const income = parseFloat(document.getElementById("income").value);
+
+      if (!name || !pan || pan.length !== 10 || isNaN(income)) {
+        alert("Please enter valid Name, PAN (10 characters), and Income.");
+        return;
+      }
+
+      calculateTax(name, pan, income, processTaxResult);
+    }
+  </script>
+</body>
+</html>

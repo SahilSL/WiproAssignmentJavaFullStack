@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tour Booking Form</title>
+</head>
+<body>
+
+  <h2>Tour Booking Form</h2>
+
+  <form id="bookingForm">
+    <label for="fullName">Full Name:</label><br>
+    <input type="text" id="fullName" required><br><br>
+
+    <label for="email">Email Id:</label><br>
+    <input type="email" id="email" required><br><br>
+
+    <label for="destination">Destination:</label><br>
+    <select id="destination" required>
+      <option value="">-- Select Destination --</option>
+      <option value="Nagpur">Nagpur</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Pune">Pune</option>
+      <option value="Satara">Satara</option>
+      <option value="Yevatmal">Yevatmal</option>
+      <option value="Nashik">Nashik</option>
+      <option value="Thane">Thane</option>
+      <option value="Amravati">Amravati</option>
+    </select>
+    <br><br>
+
+    <label for="days">Number of Days:</label><br>
+    <input type="number" id="days" min="1" required><br><br>
+
+    <label for="travelers">Number of Travelers:</label><br>
+    <input type="number" id="travelers" min="1" required><br><br>
+
+    <button type="button" onclick="bookTour()">Book Now</button>
+  </form>
+
+  <h3>Booking Summary:</h3>
+  <div id="summary"></div>
+
+  <script>
+    function bookTour() {
+      //Get values using getElementById
+      const name = document.getElementById("fullName").value;
+      const email = document.getElementById("email").value;
+      const destination = document.getElementById("destination").value;
+      const days = parseInt(document.getElementById("days").value);
+      const travelers = parseInt(document.getElementById("travelers").value);
+
+      if (!name || !email || !destination || !days || !travelers) {
+        alert("Please fill all fields");
+        return;
+      }
+
+      //price per day per person
+      let pricePerDay = 0;
+      if (destination === "Nagpur") {
+        pricePerDay = 2000;
+      } else if (destination === "Mumbai") {
+        pricePerDay = 4000;
+      } else if (destination === "Pune") {
+        pricePerDay = 3000;
+      } else if (destination === "Satara") {
+        pricePerDay = 1000;
+      } else if (destination === "Yevatmal") {
+        pricePerDay = 1500;
+      } else if (destination === "Nashik") {
+        pricePerDay = 2000;
+      } else if (destination === "Thane") {
+        pricePerDay = 3500;
+      } else if (destination === "Amravati") {
+        pricePerDay = 1000;
+      }
+
+      const totalCost = pricePerDay * days * travelers;
+
+      const Summary = `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Destination:</strong> ${destination}</p>
+        <p><strong>Days:</strong> ${days}</p>
+        <p><strong>Travelers:</strong> ${travelers}</p>
+        <p><strong>Total Price:</strong> ₹${totalCost}</p>
+      `;
+      document.getElementById("summary").innerHTML = Summary;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sports Team Player Details</title>
+</head>
+
+<body>
+    <script>
+        const player1 = {
+            name: "Virat Kohli",
+            age: 36,
+            sport: "Cricket",
+            stats: {
+                matches: 500,
+                runs: 25000,
+                average: 57.2
+            }
+        };
+
+        // Destructuring
+        const {
+            name: name1, sport: sport1, stats: { matches: matches1, runs: runs1, average: avg1 }
+        } = player1;
+
+        // Template Literal Output
+        const output1 = `Player ${name1} plays ${sport1}
+Matches: ${matches1} | Runs: ${runs1} | Batting Average: ${avg1}`;
+
+        const player2 = {
+            name: "Ronaldo",
+            age: 41,
+            sport: "Football",
+            stats: {
+                matches: 960,
+                goals: 720,
+                assists: 300
+            }
+        };
+
+        const players = [player1, player2];
+
+        // Destructuring
+        const [p1, p2] = players;
+
+        function printPlayerDetails(player) {
+            const { name, sport, stats } = player;
+
+            // Use different fields based on the sport
+            if (sport === "Cricket") {
+                const { matches, runs, average } = stats;
+                return `Player ${name} plays ${sport}
+Matches: ${matches} | Runs: ${runs} | Batting Average: ${average}`;
+            } 
+            
+            else if (sport === "Football") {
+                const { matches, goals, assists } = stats;
+                return `Player ${name} plays ${sport}
+Matches: ${matches} | Goals: ${goals} | Assists: ${assists}`;
+            } else {
+                return `Player ${name} plays ${sport}`;
+            }
+        }
+
+        alert(printPlayerDetails(p1));
+        alert(printPlayerDetails(p2));
+    </script>
+</body>
+
+</html>

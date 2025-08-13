@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Game</title>
+</head>
+<body>
+  <script>
+    alert("Welcome to the Quiz Game!");
+
+    const userName = prompt("Enter your name?");
+
+    const isReady = confirm(`Hi ${userName}, are you ready to start the quiz?`);
+
+    if (isReady) {
+      const answer = prompt("What is full form of JS?\nA. JavaSyntax\nB. JavaSchool\nC. JavaScript\nD. JavaString");
+
+      if (answer.toLowerCase() === "c" || answer.toLowerCase() === "paris") {
+        alert("Correct! Score: 100/100");
+      } else {
+        alert("Wrong answer. The correct answer is C. JavaScript.");
+      }
+    } else {
+      alert("No worries! Refresh Pagw to start quiz game again");
+    }
+  </script>
+</body>
+</html>

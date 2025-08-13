@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Equality & Inequality Checker</title>
+</head>
+<body>
+  <script>
+    const firstInput = prompt("Enter the first value:");
+    const secondInput = prompt("Enter the second value:");
+    const secondAsNumber = Number(secondInput);
+
+    const inputtype1 = typeof firstInput;
+    const inputtype2 = typeof secondAsNumber;
+
+    const isEqualLoose = firstInput == secondAsNumber;
+    const isEqualStrict = firstInput === secondAsNumber;
+    const isNotEqualLoose = firstInput != secondAsNumber;
+    const isNotEqualStrict = firstInput !== secondAsNumber;
+
+            const output = `
+        First Value: ${firstInput} (${inputtype1})
+        Second Value: ${secondInput} (converted to number: ${secondAsNumber}, type: ${inputtype2})
+
+        Using == : ${isEqualLoose} → Equality ignores type (loose comparison)
+        Using === : ${isEqualStrict} → Strict equality checks value AND type
+        Using != : ${isNotEqualLoose} → Inequality ignores type
+        Using !== : ${isNotEqualStrict} → Strict inequality checks type and value
+            `;
+
+    alert(output);
+  </script>
+</body>
+</html>
