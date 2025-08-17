@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Share Market Portfolio (Closure Example)</title>
+</head>
+<body>
+  <h2>Check Console Output for Portfolio Updates</h2>
+
+  <script>
+    // 1. Portfolio Tracker using Closure
+    function createPortfolio() {
+      // Private portfolio array (not accessible outside)
+      const portfolio = [];
+
+      // 2. Buy shares
+      function buyShare(company, quantity, price) {
+        // Check if the company already exists
+        const existing = portfolio.find(s => s.company === company);
+
+        if (existing) {
+          existing.quantity += quantity;
+          existing.price = price; // Optionally update latest price
+        } else {
+          portfolio.push({ company, quantity, price });
+        }
+
+        console.log(`Bought ${quantity} shares of ${company} at ${price} each.`);
+      }
+
+      // 3. Sell shares
+      function sellShare(company, quantity) {
+        const existing = portfolio.find(s => s.company === company);
+
+        if (!existing) {
+          console.log(`You don't own any shares of ${company}.`);
+          return;
+        }
+
+        if (existing.quantity < quantity) {
+          console.log(`Not enough shares to sell. You only have ${existing.quantity}.`);
+          return;
+        }
+
+        existing.quantity -= quantity;
+        console.log(`Sold ${quantity} shares of ${company}.`);
+
+        // If quantity becomes zero, optionally remove it
+        if (existing.quantity === 0) {
+          const index = portfolio.indexOf(existing);
+          portfolio.splice(index, 1);
+        }
+      }
+
+      // 4. Calculate total value
+      function totalValue() {
+        let total = 0;
+        for (const share of portfolio) {
+          total += share.quantity * share.price;
+        }
+        console.log(`Portfolio Value: ₹${total}`);
+        return total;
+      }
+
+      // 5. Return access only to these functions
+      return {
+        buyShare,
+        sellShare,
+        totalValue
+      };
+    }
+
+    // 6. Using the closure
+    const myPortfolio = createPortfolio();
+
+    myPortfolio.buyShare("TCS", 10, 3500);
+    myPortfolio.buyShare("Infosys", 5, 1500);
+    myPortfolio.sellShare("TCS", 3);
+    myPortfolio.totalValue();
+
+    // Trying to access the internal portfolio directly (this won't work)
+    // console.log(myPortfolio.portfolio); // undefined
+
+  </script>
+</body>
+</html>

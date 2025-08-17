@@ -1,0 +1,67 @@
+<!-- JavaScript Lab Question (IIFE + Product Context)
+❓ Question:
+You are building a shopping site and need to manage product inventory using an IIFE.
+Implement an IIFE that:
+    Stores a private product stock count.
+    Provides three methods:
+        getStock() – returns current stock.
+        addStock(quantity) – adds the given quantity to stock.
+        sell(quantity) – reduces the stock if enough is available, otherwise logs "Insufficient stock".
+Demonstrate usage of this IIFE by:
+    Adding 10 items to stock.
+    Selling 3 items.
+    Logging current stock.
+
+✅ Expected Output: 
+Stock after adding: 10
+Sold 3 items.
+Stock remaining: 7 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 12</title>
+</head>
+
+<body>
+    <script>
+
+        // IIFE to manage product stock
+        const productInventory = (function () {
+            let stock = 0;  // Private variable
+
+            return {
+                gettheStock: function () {
+                    return stock;
+                },
+
+                addingStock: function (quantity) {
+                    stock = stock + quantity;
+                    console.log("Stock after adding: " + stock);
+                },
+
+                sellStock: function (quantity) {
+                    if (stock >= quantity) {
+                        stock = stock - quantity;
+                        console.log("Sold " + quantity + " items");
+                    } else {
+                        console.log("Low Stock");
+                    }
+                }
+            };
+        })();
+
+        productInventory.addingStock(10);
+        productInventory.sellStock(3);
+        console.log("Remaining  Stock : " + productInventory.gettheStock());
+
+
+
+    </script>
+</body>
+
+</html>
