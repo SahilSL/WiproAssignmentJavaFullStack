@@ -21,11 +21,15 @@ import BakingForm from "./BakingForm"; //Assignment15
 //Movie List
 //Electronic product details, ternary operator
 //Furniture items
-//festival react app
+import FestivalApp from './FestivalApp'; //festival react app Assignment 19
 //restaurant resgistration
 //parent/child/sibling communication
 import ChessTournamentForm from "./Forms/ChessTournamentForm"; //chess Tournament
-//Hockey Tournament formik+yup+bs
+
+import React, { useState } from "react";
+
+import RegistrationForm from "./Hockey/components/RegistrationForm";
+import RecordsTable from "./Hockey/components/RecordsTable"; //Hockey Tournament formik+yup+bs
 //Tailoring shop inventory using json and axios
 //football player management system
 //Electricity Power Cut Announcement System Using React Context API and Bootstrap
@@ -99,7 +103,13 @@ function AppWrapper() {
   );
 }
 
+//hockey
+  const [records, setRecords] = useState([]);
 
+  const handleAddRecord = (data) => {
+    console.log("Submitted Data:", data);
+    setRecords((prev) => [...prev, data]);
+  };
 
   return (
     <>
@@ -239,8 +249,36 @@ function AppWrapper() {
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div><br></br><hr></hr><br></br></div>
 <h1 style={{textAlign:"center", color:"grey"}}>Assignment 19</h1>
+<div><FestivalApp /></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -256,15 +294,15 @@ function AppWrapper() {
 
 <div><br></br><hr></hr><br></br></div>
 <h1 style={{textAlign:"center", color:"grey"}}>Assignment 22</h1>
-<div>
-      <ChessTournamentForm />
-    </div>
-
+<div><ChessTournamentForm /></div>
 
 <div><br></br><hr></hr><br></br></div>
 <h1 style={{textAlign:"center", color:"grey"}}>Assignment 23</h1>
-
-
+<div className="container my-4">
+      <h2 className="mb-4">Hockey Tournament Registration</h2>
+      <RegistrationForm onSubmit={handleAddRecord} />
+      <RecordsTable records={records} />
+    </div>
 
 <div><br></br><hr></hr><br></br></div>
 <h1 style={{textAlign:"center", color:"grey"}}>Assignment 24</h1>
